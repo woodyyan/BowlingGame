@@ -7,6 +7,11 @@ public class RoundScore {
     private RoundScore previous;
     private RoundScore next;
 
+    public RoundScore() {
+        this.firstScore = ScoreType.NONE;
+        this.secondScore = ScoreType.NONE;
+    }
+
     public ScoreType getFirstScore() {
         return firstScore;
     }
