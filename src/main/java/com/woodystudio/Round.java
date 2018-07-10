@@ -1,16 +1,10 @@
 package com.woodystudio;
 
-public class RoundScore {
+public abstract class Round {
     private ScoreType firstScore;
     private ScoreType secondScore;
-    private int totalScore;
-    private RoundScore previous;
-    private RoundScore next;
-
-    public RoundScore() {
-        this.firstScore = ScoreType.NONE;
-        this.secondScore = ScoreType.NONE;
-    }
+    private Round previous;
+    private Round next;
 
     public ScoreType getFirstScore() {
         return firstScore;
@@ -28,27 +22,23 @@ public class RoundScore {
         this.secondScore = secondScore;
     }
 
-    public int getTotalScore() {
-        return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public RoundScore getPrevious() {
+    public Round getPrevious() {
         return previous;
     }
 
-    public void setPrevious(RoundScore previous) {
+    public void setPrevious(Round previous) {
         this.previous = previous;
     }
 
-    public RoundScore getNext() {
+    public Round getNext() {
         return next;
     }
 
-    public void setNext(RoundScore next) {
+    public void setNext(Round next) {
         this.next = next;
+    }
+
+    public int calculateTotalScore() {
+        return firstScore.ordinal() + secondScore.ordinal();
     }
 }
